@@ -24,6 +24,8 @@ android {
       keyPassword keystoreProperties['keyPassword']
       keyAlias keystoreProperties['keyAlias']
     }
+
+    release {}
   }
 
   buildTypes {
@@ -37,11 +39,11 @@ android {
       minifyEnabled false
       shrinkResources false
       debuggable true
+      signingConfig signingConfigs.staging
     }
 
     staging {
       initWith debug
-      signingConfig signingConfigs.staging
       matchingFallbacks = ['debug']
     }
   }
@@ -81,29 +83,6 @@ dependencies {
 
   androidTestImplementation 'androidx.test.ext:junit:1.1.1'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-}
-
-Properties props = new Properties()
-def propFile = new File('keystore.properties')
-if (propFile.canRead()) {
-  props.load(new InputStreamReader(new FileInputStream(propFile), "UTF-8"))
-
-  if (props != null &&
-      props.containsKey('storeFile') &&
-      props.containsKey('storePassword') &&
-      props.containsKey('keyAlias') &&
-      props.containsKey('keyPassword')) {
-    android.signingConfigs.debug.storeFile = file(props['storeFile'])
-    android.signingConfigs.debug.storePassword = props['storePassword']
-    android.signingConfigs.debug.keyAlias = props['keyAlias']
-    android.signingConfigs.debug.keyPassword = props['keyPassword']
-  } else {
-    println 'signing.properties found but some entries are missing'
-    android.buildTypes.debug.signingConfig = null
-  }
-} else {
-  println 'signing.properties not found'
-  android.buildTypes.debug.signingConfig = null
 }
 
 static def gitSha() {
