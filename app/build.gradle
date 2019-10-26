@@ -39,12 +39,12 @@ android {
       minifyEnabled false
       shrinkResources false
       debuggable true
-      signingConfig signingConfigs.staging
     }
 
     staging {
       initWith debug
       matchingFallbacks = ['debug']
+      signingConfig signingConfigs.staging
     }
   }
 
