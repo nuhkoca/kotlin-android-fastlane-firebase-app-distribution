@@ -13,7 +13,7 @@ android {
     minSdkVersion 21
     targetSdkVersion 29
     versionCode 1
-    versionName "1.0.0"
+    versionName getVersionNameValue()
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
@@ -42,6 +42,7 @@ android {
     staging {
       initWith debug
       signingConfig signingConfigs.staging
+      matchingFallbacks = ['debug']
     }
   }
 
@@ -49,19 +50,19 @@ android {
   productFlavors {
     dev {
       applicationIdSuffix ".dev"
-      versionNameSuffix "-dev"
+      versionNameSuffix "-dev-${gitSha()}"
       dimension "dimension"
     }
 
     prod {
       applicationIdSuffix ".prod"
-      versionNameSuffix "-prod"
+      versionNameSuffix "-prod-${gitSha()}"
       dimension "dimension"
     }
 
     beta {
       applicationIdSuffix ".beta"
-      versionNameSuffix "-beta"
+      versionNameSuffix "-beta-${gitSha()}"
       dimension "dimension"
     }
   }
@@ -80,4 +81,38 @@ dependencies {
 
   androidTestImplementation 'androidx.test.ext:junit:1.1.1'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+Properties props = new Properties()
+def propFile = new File('keystore.properties')
+if (propFile.canRead()) {
+  props.load(new InputStreamReader(new FileInputStream(propFile), "UTF-8"))
+
+  if (props != null &&
+      props.containsKey('storeFile') &&
+      props.containsKey('storePassword') &&
+      props.containsKey('keyAlias') &&
+      props.containsKey('keyPassword')) {
+    android.signingConfigs.debug.storeFile = file(props['storeFile'])
+    android.signingConfigs.debug.storePassword = props['storePassword']
+    android.signingConfigs.debug.keyAlias = props['keyAlias']
+    android.signingConfigs.debug.keyPassword = props['keyPassword']
+  } else {
+    println 'signing.properties found but some entries are missing'
+    android.buildTypes.debug.signingConfig = null
+  }
+} else {
+  println 'signing.properties not found'
+  android.buildTypes.debug.signingConfig = null
+}
+
+static def gitSha() {
+  return 'git rev-parse --short HEAD'.execute().text.trim()
+}
+
+static def getVersionNameValue() {
+  def versionMajor = 1
+  def versionMinor = 0
+  def versionPatch = 0
+  return "${versionMajor}.${versionMinor}.${versionPatch}"
 }
