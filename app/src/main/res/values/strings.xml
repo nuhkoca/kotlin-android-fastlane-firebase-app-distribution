@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">FirebaseAppDistributionSample</string>
+
+  <string name="default_web_client_id" translatable="false">XXX.apps.googleusercontent.com</string>
+  <string name="firebase_database_url" translatable="false">XXX.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">XXX</string>
+  <string name="google_api_key" translatable="false">AIzaXXX</string>
+  <string name="google_app_id" translatable="false">1:943XXX</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaXXX</string>
+  <string name="google_storage_bucket" translatable="false">XXX.appspot.com</string>
+  <string name="project_id" translatable="false">XXX</string>
+</resources>

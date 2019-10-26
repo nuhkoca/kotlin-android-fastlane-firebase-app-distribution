@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+  compileSdkVersion 29
+  defaultConfig {
+    applicationId "net.nuhkoca.firebaseappdistributionsample"
+    minSdkVersion 21
+    targetSdkVersion 29
+    versionCode 1
+    versionName "1.0.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  signingConfigs {
+    staging {
+      storeFile file("$rootDir/" + keystoreProperties['storeFile'])
+      storePassword keystoreProperties['storePassword']
+      keyPassword keystoreProperties['keyPassword']
+      keyAlias = keystoreProperties['keyAlias']
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      debuggable false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+
+    debug {
+      minifyEnabled false
+      shrinkResources false
+      debuggable true
+    }
+
+    staging {
+      initWith debug
+      signingConfig signingConfigs.staging
+    }
+  }
+
+  flavorDimensions "dimension"
+  productFlavors {
+    dev {
+      applicationIdSuffix ".dev"
+      versionNameSuffix "-dev"
+      dimension "dimension"
+    }
+
+    prod {
+      applicationIdSuffix ".prod"
+      versionNameSuffix "-prod"
+      dimension "dimension"
+    }
+
+    beta {
+      applicationIdSuffix ".beta"
+      versionNameSuffix "-beta"
+      dimension "dimension"
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation 'androidx.appcompat:appcompat:1.1.0'
+  implementation 'androidx.core:core-ktx:1.1.0'
+  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+  implementation 'com.google.firebase:firebase-analytics:17.2.1'
+
+  testImplementation 'junit:junit:4.12'
+
+  androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
