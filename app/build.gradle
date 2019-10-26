@@ -22,7 +22,7 @@ android {
       storeFile file("$rootDir/" + keystoreProperties['storeFile'])
       storePassword keystoreProperties['storePassword']
       keyPassword keystoreProperties['keyPassword']
-      keyAlias = keystoreProperties['keyAlias']
+      keyAlias keystoreProperties['keyAlias']
     }
   }
 
