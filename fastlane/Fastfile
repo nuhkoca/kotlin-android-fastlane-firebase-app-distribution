@@ -38,12 +38,10 @@ platform :android do
 
   desc "Distribute app using Firebase App Distribution"
   lane :distribute do
-    build_android_app(
-        gradle(
-          task: "assemble",
-          flavor: "Dev",
-          build_type: "Debug"
-        )
+    gradle(
+      task: "assemble",
+      flavor: "Dev",
+      build_type: "Debug"
     )
 
     firebase_app_distribution(
