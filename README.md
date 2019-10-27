@@ -29,7 +29,12 @@ Table of contents
         * [Setup fastlane](#setup-fastlane)
         * [Setup Firebase CLI](#setup-firebase-cli)
       * [Firebase Console side](#firebase-console-side)
+        * [Add testers and groups](#add-testers-and-groups)
+        * [Create an invite link](#create-an-invite-link)
+        * [Distribute app to testers](#distribute-app-to-testers)
       * [Android Device side](#android-device-side)
+        * [Download app via email](#download-app-via-email)
+        * [Access app via App Tester](#access-app-via-app-tester)
       * [Run the lane](#run-the-lane)
    * [Resources](#resources)
    * [Find this docs useful?](#find-this-docs-useful)
@@ -264,6 +269,8 @@ Firebase Console side
 
 We also need to have some settings on Firebase console in order to able to distribute our application such as defining testers, groups, invite links and so on.
 
+#### Add testers and groups
+
 1. First, navigate to **App Distribution** section on the console.
 <p align="left" style="padding-left: 15px">
 <img src="images/app_distribution_section.png" width="350" />
@@ -279,12 +286,16 @@ We also need to have some settings on Firebase console in order to able to distr
 <img src="images/add_tester.png" width="350" />
 </p>
 
-4. You can also create invite link to allow new testers to sign up via this custom link
+#### Create an invite link
+
+1. You can also create invite link to allow new testers to sign up via this custom link
 <p align="left" style="padding-left: 15px">
 <img src="images/invite_link.png" width="350" />
 </p>
 
-5. Rather like you provide your **.apk** file manually, fastlane will upload apk files to this part when you [run the command](#run-the-lane). Here you can see list of previous distributions and number of invited, accepted and downloaded persons.
+#### Distribute app to testers
+
+1. Rather like you provide your **.apk** file manually, fastlane will upload apk files to this part when you [run the command](#run-the-lane). Here you can see list of previous distributions and number of invited, accepted and downloaded persons.
 <p align="left" style="padding-left: 15px">
 <img src="images/distribution.png" width="350" />
 </p>
@@ -294,24 +305,26 @@ When you expand any distribution you will see email addresses which were invited
 <img src="images/distribution_expanded.png" width="350" />
 </p>
 
-6. Most important part, when you upload your apk to Firebase console, you need to manually distribute it to your testers as following:
+2. Most important part, when you upload your apk to Firebase console, you need to manually distribute it to your testers as following:
 <p align="left" style="padding-left: 15px">
 <img src="images/distribute_part1.png" width="350" />
 </p>
 
 After you add testers, click **Next**.
 
-7. Click **Distribute to N tester**.
+3. Click **Distribute to N tester**.
 <p align="left" style="padding-left: 15px">
 <img src="images/distribute_part2.png" width="350" />
 </p>
 
-8. Distribution is successfull. Now let's check it out on our email. Please navigate to [Android Device side](#android-device-side)
+4. Distribution is successful. Now let's check it out on our email. Please navigate to [Android Device side](#android-device-side)
 
 Android Device side
 -------------------
 
 The last part is to download our app after getting an aler email that indicates the application has a new release.
+
+#### Download app via email
 
 1. Open email address that is registered on the console.
 2. Your email would probably look like;
@@ -321,14 +334,17 @@ The last part is to download our app after getting an aler email that indicates 
 
 3. Click **Download the latest build**
 4. If you don't still install **App Tester app**, it will probably prompt you to first install it and then receive release.
-5. Open **App Tester** app.
-6. You will probably see a page which look like;
+
+#### Access app via App Tester
+
+1. Open **App Tester** app.
+2. You will probably see a page which look like;
 <p align="left" style="padding-left: 15px">
 <img src="images/app_tester.jpg" width="350" />
 </p>
 
-7. Click **Download**
-8. :confetti_ball: Yay! You have the latest pre_prod release on your device!
+3. Click **Download**
+4. :confetti_ball: Yay! You have the latest pre_prod release on your device!
 
 Run the lane
 ------------
