@@ -1,9 +1,14 @@
-# Firebase App Distribution via fastlane
+<a href="https://console.firebase.google.com/u/0/"><img alt="License" src="https://miro.medium.com/max/1031/1*txtcYocQEGtOFN33ZCTDbw.png" width="350"/></a># Firebase App Distribution via fastlane
 
 Purpose of the project
 ======================
 
 :boom: This project will help you distribute your app with the power of Firebase App Distribution and fastlane. As you may know, Firebase App Distribution is a replacement of [Beta](https://docs.fabric.io/android/beta/installation.html). This sample also guides you how to organize a multi-build types and a multi-flavor Android application. 
+
+<p align="center">
+  <a href="https://console.firebase.google.com/u/0/"><img src="https://miro.medium.com/max/3200/1*ipwpqQrHz0Lkd_5setXQCQ.jpeg" width="350"/></a>
+  <a href="https://fastlane.tools/"><img src="https://miro.medium.com/max/1031/1*txtcYocQEGtOFN33ZCTDbw.png" width="350"/></a>
+</p>
 
 Table of contents
 =================
