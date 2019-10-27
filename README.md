@@ -22,6 +22,7 @@ Table of contents
       * [Android side](#android-side)
         * [Prepare Firebase resources](#prepare-firebase-resources)
         * [Setup fastlane](#setup-fastlane)
+        * [Setup Firebase CLI](#setup-firebase-cli)
 <!--te-->
 
 Tools and components
@@ -148,7 +149,7 @@ To suppress such error, you have to create both **src** and all **flavor** folde
 4. Copy each of the <string> resources from that file into your app’s own strings.xml file (or any XML resources file you want).
 5. Remove the google-services plugin from your app and delete the google-services.json file, you don’t need them anymore!
 
-The reason that is underneath of this way according to the Firebase docs
+The reason that is underneath this way according to the [Firebase docs](https://firebase.google.com/docs/projects/multiprojects#support_multiple_environments_in_your_android_application)
 
 >Because this provider is just reading resources with known names, another option is to add the string resources directly to your app instead of using the Google Services gradle plugin. You can do this by:
 >
@@ -160,10 +161,10 @@ The reason that is underneath of this way according to the Firebase docs
 #### Setup fastlane
 
 1. Navigate to your app folder or on Terminal inside Android Studio, type the command below:
-
+    
     `sudo gem install fastlane -NV`
 2. Verify that the installation was successful by typing this command in the CLI:
-`
+
     `fastlane -version`
 3. Run `fastlane init`
 4. Provide the package name for your application when asked (**e.g.** com.thedancercodes.fastlanedroid)
@@ -188,3 +189,45 @@ Below are code snippets show the contents of the **Fastfile** & **Appfile**:
 | App file | Fast File
 |:----------------:|:---------------:|
 | <img src="images/app_file.png" width="350" />  | <img src="images/fast_file.png" width="350"/>
+
+There are something we need to add into our **Fastfile** in order to have lane working correctly.
+
+1. **app:** This key indicates our **APP_ID**. This is found on [Firebase console](). Respectively;
+
+   * Click on settings gear icon.
+   <p align="left" style="padding-left: 20px">
+   <img src="images/project_settings.png" width="350" />
+   </p>
+    
+   * Scroll down a bit and copy **APP_ID**.
+   <p align="left" style="padding-left: 20px">
+   <img src="images/app_id.png" width="350" />
+   </p>
+
+2. **release_notes_file:** A file that includes changelog.
+3. **firebase_cli_path:** A path to Firebase CLI - Please see [Setup Firebase CLI](#setup-firebase-cli)
+4. **apk_path:** Refers to our apk path that we want to distribute.
+
+#### Setup Firebase CLI
+
+:clipboard: The Firebase CLI ([GitHub](https://github.com/firebase/firebase-tools)) provides a variety of tools for managing, viewing, and deploying to Firebase projects.
+
+1. Install plugin `firebase_app_distribution` for fastlane by run this in your terminal
+
+    `fastlane add_plugin firebase_app_distribution`
+    
+2. Check that if in your Pluginfile like this
+<p align="left" style="padding-left: 15px">
+<img src="images/plugin_file.png" width="350" />
+</p>
+
+3. Next, install Firebase CLI by running this in your terminal
+
+    `curl -sL firebase.tools | bash`
+4. Sign in your account to authorize Firebase by running
+    
+    `firebase login`
+    
+    * and you can log out anytime by running with the following command line
+      
+      `firebase logout`
