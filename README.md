@@ -20,7 +20,8 @@ Table of contents
         * [Add a Firebase configuration file](#add-a-firebase-configuration-file)
         * [Add Firebase SDKs to your app](#add-firebase-sdks-to-your-app)
       * [Android side](#android-side)
-        * [Setup fastlane]()
+        * [Prepare Firebase resources](#prepare-firebase-resources)
+        * [Setup fastlane](#setup-fastlane)
 <!--te-->
 
 Tools and components
@@ -113,6 +114,48 @@ Before you can add Firebase to your Android app, you need to create a Firebase p
 
 Android side
 ------------
+
+#### Prepare Firebase resources
+
+When you work on a project that has multiple build types or flavors, you will most likely face weird issues. For example:
+
+`Could not find google-services.json while looking in [src/flavor1/debug, src/debug, src/flavor1]`
+
+To suppress such error, you have to create both **src** and all **flavor** folders and move **google-services.json** file into each one. This could be costly especially you have several build types and flavors. Now we will see how to use only resources instead of **google-services.json** file and obtain the same result for our app.
+
+1. Add the **google-services.json** file and the plugin to your project as described in the [Add Firebase to your Android Project](https://firebase.google.com/docs/android/setup) guide.
+2. Run `./gradlew :app:assembleDebug` to force the plugin to do its job.
+3. Open the generated file `app/build/generated/res/google-services/debug/values/values.xml` and inspect the contents, it should look something like this:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <! -- Present in all applications -->
+    <string name="google_app_id" translatable="false">1:1035469437089:android:73a4fb8297b2cd4f</string>
+
+    <! -- Present in applications with the appropriate services configured -->
+    <string name="gcm_defaultSenderId" translatable="false">1035469437089</string>
+    <string name="default_web_client_id" translatable="false">337894902146-e4uksm38sne0bqrj6uvkbo4oiu4hvigl.apps.googleusercontent.com</string>
+    <string name="ga_trackingId" translatable="false">UA-65557217-3</string>
+    <string name="firebase_database_url" translatable="false">https://example-url.firebaseio.com</string>
+    <string name="google_api_key" translatable="false">AIzbSyCILMsOuUKwN3qhtxrPq7FFemDJUAXTyZ8</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzbSyCILMsOuUKwN3qhtxrPq7FFemDJUAXTyZ8</string>
+    <string name="project_id" translatable="false">mydemoapp</string>
+
+</resources>
+```
+4. Copy each of the <string> resources from that file into your app’s own strings.xml file (or any XML resources file you want).
+5. Remove the google-services plugin from your app and delete the google-services.json file, you don’t need them anymore!
+
+The reason that is underneath of this way according to the Firebase docs
+
+>Because this provider is just reading resources with known names, another option is to add the string resources directly to your app instead of using the Google Services gradle plugin. You can do this by:
+>
+> * Removing the google-services plugin from your root build.gradle
+> * Deleting the google-services.json from your project
+> * Adding the string resources directly
+> * Deleting apply plugin: 'com.google.gms.google-services' from your app build.gradle
 
 #### Setup fastlane
 
