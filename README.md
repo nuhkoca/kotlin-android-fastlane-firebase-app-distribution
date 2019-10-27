@@ -3,7 +3,7 @@
 Purpose of the project
 ======================
 
-:boom: This project will help you distribute your app with the power of Firebase App Distribution and fastlane. This sample also guides you how to organize a multi-build types and a multi-flavor Android application. 
+:boom: This project will help you distribute your app with the power of Firebase App Distribution and fastlane. As you may know, Firebase App Distribution is a replacement of [Beta](https://docs.fabric.io/android/beta/installation.html). This sample also guides you how to organize a multi-build types and a multi-flavor Android application. 
 
 Table of contents
 =================
@@ -24,6 +24,7 @@ Table of contents
         * [Setup fastlane](#setup-fastlane)
         * [Setup Firebase CLI](#setup-firebase-cli)
       * [Firebase Console side](#firebase-console-side)
+      * [Android Device side](#android-device-side)
       * [Run the lane](#run-the-lane)
    * [Resources](#resources)
    * [License](#license)
@@ -287,6 +288,42 @@ When you expand any distribution you will see email addresses which were invited
 <img src="images/distribution_expanded.png" width="350" />
 </p>
 
+6. Most important part, when you upload your apk to Firebase console, you need to manually distribute it to your testers as following:
+<p align="left" style="padding-left: 15px">
+<img src="images/distribute_part1.png" width="350" />
+</p>
+
+After you add testers, click **Next**.
+
+7. Click **Distribute to N tester**.
+<p align="left" style="padding-left: 15px">
+<img src="images/distribute_part2.png" width="350" />
+</p>
+
+8. Distribution is successfull. Now let's check it out on our email. Please navigate to [Android Device side](#android-device-side)
+
+Android Device side
+-------------------
+
+The last part is to download our app after getting an aler email that indicates the application has a new release.
+
+1. Open email address that is registered on the console.
+2. Your email would probably look like;
+<p align="left" style="padding-left: 15px">
+<img src="images/email.jpg" width="350" />
+</p>
+
+3. Click **Download the latest build**
+4. If you don't still install **App Tester app**, it will probably prompt you to first install it and then receive release.
+5. Open **App Tester** app.
+6. You will probably see a page which look like;
+<p align="left" style="padding-left: 15px">
+<img src="images/app_tester.jpg" width="350" />
+</p>
+
+7. Click **Download**
+8. :confetti_ball: Yay! You have the latest pre_prod release on your device!
+
 Run the lane
 ------------
 
@@ -297,6 +334,12 @@ Run the lane
 For a faster execution, you could type:
    
    `bundle exec fastlane distribute`
+   
+   **...And the result!**
+   
+   <p align="left">
+<img src="images/lane_output.png" width="350" />
+</p>
    
 Resources
 =========
@@ -309,32 +352,27 @@ Resources that I benefit from to create this comprehensive documentation.
 * [Fastlane Page](https://fastlane.tools/)
 * [How to use Firebase on Android without the google-services plugin](https://medium.com/@samstern_58566/how-to-use-firebase-on-android-without-the-google-services-plugin-93ecc7dc6c4)
 * [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
-
-
+* [carbon.now.sh](https://carbon.now.sh/)
    
 License
 =======
 
 ```
-MIT License
+Apache License
 
-Copyright (c) 2019 Nuh Koca
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+/*
+ * Designed and developed by 2019 nuhkoca (Nuh Koca)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 ```
