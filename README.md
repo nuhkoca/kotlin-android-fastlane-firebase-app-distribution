@@ -23,6 +23,8 @@ Table of contents
         * [Prepare Firebase resources](#prepare-firebase-resources)
         * [Setup fastlane](#setup-fastlane)
         * [Setup Firebase CLI](#setup-firebase-cli)
+      * [Firebase Console side](#firebase-console-side)
+      * [Run the lane](#run-the-lane)
 <!--te-->
 
 Tools and components
@@ -231,3 +233,65 @@ There are something we need to add into our **Fastfile** in order to have lane w
     * and you can log out anytime by running with the following command line
       
       `firebase logout`
+
+5. In order to distribute your application, you need to build it first. You can check out [fastlane build actions](https://docs.fastlane.tools/actions/build_android_app/) for more options. Below code block is enough to build our application.
+
+    ```
+    gradle(
+      task: "assemble",
+      flavor: "MyFlavor",
+      build_type: "Release" -> This could be Debug or any kind of custom build type.
+    )
+    ```
+6. Now we need to add a **fastlane lane** to distribute our application. A common lane can look like;
+<p align="left" style="padding-left: 15px">
+<img src="images/firebase_lane.png" width="350" />
+</p>
+
+7. Final step is to run our lane. It is mentioned as a last step at the end of the docs. Please navigate to [Run the lane](#run-the-lane)
+
+Firebase Console side
+---------------------
+
+We also need to have some settings on Firebase console in order to able to distribute our application such as defining testers, groups, invite links and so on.
+
+1. First, navigate to **App Distribution** section on the console.
+<p align="left" style="padding-left: 15px">
+<img src="images/app_distribution_section.png" width="350" />
+</p>
+
+2. Navigate to *Testers & Groups* that we can create testers or groups which will receive app updates via **App Tester** application.
+<p align="left" style="padding-left: 15px">
+<img src="images/app_distribution_section2.png" width="350" />
+</p>
+
+3. Simply type target email addresses.
+<p align="left" style="padding-left: 15px">
+<img src="images/add_tester.png" width="350" />
+</p>
+
+4. You can also create invite link to allow new testers to sign up via this custom link
+<p align="left" style="padding-left: 15px">
+<img src="images/invite_link.png" width="350" />
+</p>
+
+5. Rather like you provide your **.apk** file manually, fastlane will upload apk files to this part when you [run the command](#run-the-lane). Here you can see list of previous distributions and number of invited, accepted and downloaded persons.
+<p align="left" style="padding-left: 15px">
+<img src="images/distribution.png" width="350" />
+</p>
+
+When you expand any distribution you will see email addresses which were invited and release notes.
+<p align="left">
+<img src="images/distribution_expanded.png" width="350" />
+</p>
+
+Run the lane
+------------
+
+:boom: Just type below command and our app will be distributed in a while :confetti_ball:
+
+   `fastlane distribute` 
+ 
+For a faster execution, you could type:
+   
+   `bundle exec fastlane distribute`
