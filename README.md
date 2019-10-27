@@ -27,7 +27,7 @@ Table of contents
       * [Android Device side](#android-device-side)
       * [Run the lane](#run-the-lane)
    * [Resources](#resources)
-   * [Find this library useful?](#find-this-library-useful?)
+   * [Find this docs useful?](#find-this-docs-useful)
    * [License](#license)
 <!--te-->
 
@@ -355,7 +355,7 @@ Resources that I benefit from to create this comprehensive documentation.
 * [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
 * [carbon.now.sh](https://carbon.now.sh/)
 
-Find this library useful?
+Find this docs useful?
 =========
 
 Find this library useful? :heart: 
