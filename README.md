@@ -1,7 +1,7 @@
 # Firebase App Distribution via fastlane
 
 Purpose of the project
-----------------------
+======================
 
 :boom: This project will help you distribute your app with the power of Firebase App Distribution and fastlane. This sample also guides you how to organize a multi-build types and a multi-flavor Android application. 
 
@@ -25,6 +25,8 @@ Table of contents
         * [Setup Firebase CLI](#setup-firebase-cli)
       * [Firebase Console side](#firebase-console-side)
       * [Run the lane](#run-the-lane)
+   * [Resources](#resources)
+   * [License](#license)
 <!--te-->
 
 Tools and components
@@ -295,3 +297,44 @@ Run the lane
 For a faster execution, you could type:
    
    `bundle exec fastlane distribute`
+   
+Resources
+=========
+
+Resources that I benefit from to create this comprehensive documentation.
+
+* [Firebase App Distribution Page](https://firebase.google.com/docs/app-distribution/android/distribute-console)
+* [Firebase App Distribution and Fastlane, too fast too furious!](https://medium.com/@ryanisnhp/firebase-app-distribution-and-fastlane-5303c17b4395)
+* [Automating the Android Build and Release Process using Fastlane -Part I](https://proandroiddev.com/automating-the-android-build-and-release-process-using-fastlane-part-i-fb3ce61b678)
+* [Fastlane Page](https://fastlane.tools/)
+* [How to use Firebase on Android without the google-services plugin](https://medium.com/@samstern_58566/how-to-use-firebase-on-android-without-the-google-services-plugin-93ecc7dc6c4)
+* [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
+
+
+   
+License
+=======
+
+```
+MIT License
+
+Copyright (c) 2019 Nuh Koca
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
