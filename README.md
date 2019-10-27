@@ -27,6 +27,7 @@ Table of contents
       * [Android Device side](#android-device-side)
       * [Run the lane](#run-the-lane)
    * [Resources](#resources)
+   * [Find this library useful?](#find-this-library-useful?)
    * [License](#license)
 <!--te-->
 
@@ -353,6 +354,15 @@ Resources that I benefit from to create this comprehensive documentation.
 * [How to use Firebase on Android without the google-services plugin](https://medium.com/@samstern_58566/how-to-use-firebase-on-android-without-the-google-services-plugin-93ecc7dc6c4)
 * [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
 * [carbon.now.sh](https://carbon.now.sh/)
+
+Find this library useful?
+=========
+
+Find this library useful? :heart: 
+
+Support it by joining [stargazers](https://github.com/nuhkoca/kotlin-android-fastlane-firebase-app-distribution/stargazers) for this repository. :star: 
+
+And [follow](https://github.com/nuhkoca) me for my next creations! 🤩
    
 License
 =======
