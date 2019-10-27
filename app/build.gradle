@@ -18,6 +18,10 @@ android {
   }
 
   signingConfigs {
+    debug {
+      storeFile file("$rootDir/keystore/debug.keystore")
+    }
+
     staging {
       storeFile file("$rootDir/" + keystoreProperties['storeFile'])
       storePassword keystoreProperties['storePassword']
@@ -39,6 +43,7 @@ android {
       minifyEnabled false
       shrinkResources false
       debuggable true
+      signingConfig signingConfigs.debug
     }
 
     staging {
