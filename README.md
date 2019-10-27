@@ -358,7 +358,7 @@ Resources that I benefit from to create this comprehensive documentation.
 Find this docs useful?
 =========
 
-Find this library useful? :heart: 
+Find this docs useful? :heart: 
 
 Support it by joining [stargazers](https://github.com/nuhkoca/kotlin-android-fastlane-firebase-app-distribution/stargazers) for this repository. :star: 
 
