@@ -1,4 +1,4 @@
-<a href="https://console.firebase.google.com/u/0/"><img alt="License" src="https://miro.medium.com/max/1031/1*txtcYocQEGtOFN33ZCTDbw.png" width="350"/></a># Firebase App Distribution via fastlane
+# Firebase App Distribution via fastlane
 
 Purpose of the project
 ======================
