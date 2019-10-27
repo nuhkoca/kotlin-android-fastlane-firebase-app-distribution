@@ -132,6 +132,8 @@ Before you can add Firebase to your Android app, you need to create a Firebase p
 Android side
 ------------
 
+In this part, we will configure our Android application to allow it to be in touch with **Firebase App Distribution**.
+
 #### Prepare Firebase resources
 
 When you work on a project that has multiple build types or flavors, you will most likely face weird issues. For example:
