@@ -57,6 +57,8 @@ fastlane
 To-do list
 ==========
 
+This to-do list is consist of 5 sections. We will see how both Firebase and Android side work respectively.
+
 Firebase side
 -------------
 
