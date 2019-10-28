@@ -56,6 +56,10 @@ platform :android do
 
   desc "Distribute app using Firebase App Distribution"
   lane :distribute do
+    increment_version_code(
+        gradle_file_path: "./app/build.gradle"
+    )
+
     gradle(
       task: "assemble",
       flavor: "Dev",
@@ -65,7 +69,7 @@ platform :android do
     firebase_app_distribution(
         app: "${YOUR_APP_ID}",
         release_notes_file: "./release-notes.txt",
-        testers_file: "./testers.txt"
+        testers_file: "./testers.txt",
         firebase_cli_path: "/usr/local/bin/firebase",
         apk_path: "./app/build/outputs/apk/dev/debug/app-dev-debug.apk"
     )

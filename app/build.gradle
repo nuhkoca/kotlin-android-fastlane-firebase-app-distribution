@@ -12,7 +12,7 @@ android {
     applicationId "net.nuhkoca.firebaseappdistributionsample"
     minSdkVersion 21
     targetSdkVersion 29
-    versionCode 1
+    versionCode 2
     versionName getVersionNameValue()
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
