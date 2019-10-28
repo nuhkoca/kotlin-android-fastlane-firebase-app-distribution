@@ -261,7 +261,7 @@ There are something we need to add into our **Fastfile** in order to have lane w
     )
     ```
     
-6. ***Optional***: We can also add a plugin called **increment_version_code**. This will increment app's version code in each release. This can be used in **Deploy to Play Store** part. In this example, I just used it in Firebase distribution part to imitate the scenario.
+6. ***Optional***: We can also add a plugin called [increment_version_code](https://github.com/Jems22/fastlane-plugin-increment_version_code). This will increment app's version code in each release. This can be used in **Deploy to Play Store** part. In this example, I just used it in Firebase distribution part to imitate the scenario.
     
    ```
    increment_version_code(
@@ -386,6 +386,7 @@ Resources that I benefit from to create this comprehensive documentation.
 * [Fastlane Page](https://fastlane.tools/)
 * [How to use Firebase on Android without the google-services plugin](https://medium.com/@samstern_58566/how-to-use-firebase-on-android-without-the-google-services-plugin-93ecc7dc6c4)
 * [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
+* [Increment version code plugin](https://github.com/Jems22/fastlane-plugin-increment_version_code)
 * [carbon.now.sh](https://carbon.now.sh/)
 
 Find this docs useful?
