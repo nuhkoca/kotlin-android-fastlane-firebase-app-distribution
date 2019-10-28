@@ -223,6 +223,7 @@ There are something we need to add into our **Fastfile** in order to have lane w
    </p>
 
 2. **release_notes_file:** A file that includes changelog.
+3. **testers_file:** A file that includes testers. If we specify it we can skip [Distribute app to testers](#distribute-app-to-testers) since *fastlane* will handle distribution automatically.
 3. **firebase_cli_path:** A path to Firebase CLI - Please see [Setup Firebase CLI](#setup-firebase-cli)
 4. **apk_path:** Refers to our apk path that we want to distribute.
 
@@ -259,12 +260,21 @@ There are something we need to add into our **Fastfile** in order to have lane w
       build_type: "Release" -> This could be Debug or any kind of custom build type.
     )
     ```
-6. Now we need to add a **fastlane lane** to distribute our application. A common lane can look like;
+    
+6. ***Optional***: We can also add a plugin called **increment_version_code**. This will increment app's version code in each release. This can be used in **Deploy to Play Store** part. In this example, I just used it in Firebase distribution part to imitate the scenario.
+    
+   ```
+   increment_version_code(
+        gradle_file_path: "./app/build.gradle"
+    )
+   ```
+
+7. Now we need to add a **fastlane lane** to distribute our application. A common lane can look like;
 <p align="left" style="padding-left: 15px">
 <img src="images/firebase_lane.png" width="350" />
 </p>
 
-7. Final step is to run our lane. It is mentioned as a last step at the end of the docs. Please navigate to [Run the lane](#run-the-lane)
+8. Final step is to run our lane. It is mentioned as a last step at the end of the docs. Please navigate to [Run the lane](#run-the-lane)
 
 Firebase Console side
 ---------------------
