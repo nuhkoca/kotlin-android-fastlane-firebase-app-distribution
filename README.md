@@ -36,7 +36,7 @@ Table of contents
         * [Download app via email](#download-app-via-email)
         * [Access app via App Tester](#access-app-via-app-tester)
       * [Run the lane](#run-the-lane)
-   * [Plugins - Bonus*](#plugins-bonus)
+   * [Plugins - Bonus*](#plugins---bonus)
         * [Increment Version Code](#increment-version-code)
         * [dotenv](#dotenv)
    * [Resources](#resources)
