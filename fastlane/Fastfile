@@ -28,9 +28,15 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+fastlane_require 'dotenv'
+
 default_platform(:android)
 
 platform :android do
+  before_all do
+    Dotenv.overload '.env.secret'
+  end
+
   desc "Runs all the tests"
   lane :test do
     gradle(task: "test")
@@ -56,9 +62,18 @@ platform :android do
 
   desc "Distribute app using Firebase App Distribution"
   lane :distribute do
-    increment_version_code(
-        gradle_file_path: "./app/build.gradle"
+
+    branchExp = "^master$"
+
+    ensure_git_branch(
+      branch: branchExp
     )
+
+    increment_version_code(
+      gradle_file_path: "./app/build.gradle"
+    )
+
+    gradle(task: "clean")
 
     gradle(
       task: "assemble",
@@ -67,11 +82,11 @@ platform :android do
     )
 
     firebase_app_distribution(
-        app: "${YOUR_APP_ID}",
-        release_notes_file: "./release-notes.txt",
-        testers_file: "./testers.txt",
-        firebase_cli_path: "/usr/local/bin/firebase",
-        apk_path: "./app/build/outputs/apk/dev/debug/app-dev-debug.apk"
+      app: ENV['FIREBASE_APP_ID'],
+      release_notes_file: "./release-notes.txt",
+      testers_file: "./testers.txt",
+      firebase_cli_path: "/usr/local/bin/firebase",
+      apk_path: "./app/build/outputs/apk/dev/debug/app-dev-debug.apk"
     )
   end
 end

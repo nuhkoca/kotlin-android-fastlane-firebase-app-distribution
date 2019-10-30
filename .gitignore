@@ -14,5 +14,6 @@
 .cxx
 /keystore
 /keystore.properties
-/fastlane/report.xml
-/firebase-debug.log
+fastlane/report.xml
+fastlane/.env.secret
+firebase-debug.log
