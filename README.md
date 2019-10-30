@@ -36,6 +36,9 @@ Table of contents
         * [Download app via email](#download-app-via-email)
         * [Access app via App Tester](#access-app-via-app-tester)
       * [Run the lane](#run-the-lane)
+   * [Plugins - Bonus*](#plugins-bonus)
+        * [Increment Version Code](#increment-version-code)
+        * [dotenv](#dotenv)
    * [Resources](#resources)
    * [Find this docs useful?](#find-this-docs-useful)
    * [License](#license)
@@ -263,20 +266,12 @@ There are something we need to add into our **Fastfile** in order to have lane w
     )
     ```
     
-6. ***Optional***: We can also add a plugin called [increment_version_code](https://github.com/Jems22/fastlane-plugin-increment_version_code). This will increment app's version code in each release. This can be used in **Deploy to Play Store** part. In this example, I just used it in Firebase distribution part to imitate the scenario.
-    
-   ```
-   increment_version_code(
-        gradle_file_path: "./app/build.gradle"
-    )
-   ```
-
-7. Now we need to add a **fastlane lane** to distribute our application. A common lane can look like;
+6. Now we need to add a **fastlane lane** to distribute our application. A common lane can look like;
 <p align="left" style="padding-left: 15px">
 <img src="images/firebase_lane.png" width="350" />
 </p>
 
-8. Final step is to run our lane. It is mentioned as a last step at the end of the docs. Please navigate to [Run the lane](#run-the-lane)
+7. Final step is to run our lane. It is mentioned as a last step at the end of the docs. Please navigate to [Run the lane](#run-the-lane)
 
 Firebase Console side
 ---------------------
@@ -376,6 +371,55 @@ For a faster execution, you could type:
    <p align="left">
 <img src="images/lane_output.png" width="350" />
 </p>
+
+Plugins - Bonus*
+================
+
+Increment Version Code
+----------------------
+
+[increment_version_code](https://github.com/Jems22/fastlane-plugin-increment_version_code) is a **fastlane** plugin that helps to increment version code in each release. This usually is used in **Deploy to Play Store** part. In this example, I used it in Firebase distribution part to imitate the scenario.
+
+   ```
+   increment_version_code(
+        gradle_file_path: "./app/build.gradle"
+    )
+   ```
+   
+dotenv
+------
+
+**dotenv** basically shims to load environment variables from *.env* into *ENV* in development. To install it, just type below command on terminal;
+
+`sudo gem install -n /usr/local/bin dotenv`
+
+If it asks you some permissions, grant it otherwise it won't continue.
+
+Since we have a sensitive data called **Firebase App Id** we need to store it in a *.env* file. Therefore, **fastlane** will access and read content directly. We need to follow steps below in order;
+
+1. Create a **.env.secret** file inside *fastlane folder*
+2. Add ``.env.secret* to your .gitignore` file (if you are using git)
+3. Manually load *.env.secret* in the `before_all block in your ``*Fastfile**
+
+```
+# fastlane/Fastfile
+fastlane_require 'dotenv'
+
+before_all do
+  Dotenv.overload '.env.secret'
+end
+```
+
+```
+lane :distribute do               
+  firebase_app_distribution(
+      app: ENV['FIREBASE_APP_ID'],
+      ...
+    )
+end
+```
+
+That's it! Fastlane will automatically read our value from the file and distribute a release without any error.
    
 Resources
 =========
@@ -392,7 +436,7 @@ Resources that I benefit from to create this comprehensive documentation.
 * [carbon.now.sh](https://carbon.now.sh/)
 
 Find this docs useful?
-=========
+======================
 
 Find this docs useful? :heart: 
 
