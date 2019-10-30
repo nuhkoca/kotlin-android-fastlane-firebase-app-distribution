@@ -389,7 +389,7 @@ Increment Version Code
 dotenv
 ------
 
-**dotenv** basically shims to load environment variables from *.env* into *ENV* in development. To install it, just type below command on terminal;
+[dotenv](https://github.com/bkeepers/dotenv) basically shims to load environment variables from *.env* into *ENV* in development. To install it, just type below command on terminal;
 
 `sudo gem install -n /usr/local/bin dotenv`
 
