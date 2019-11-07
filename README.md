@@ -38,6 +38,7 @@ Table of contents
       * [Run the lane](#run-the-lane)
    * [Plugins - Bonus*](#plugins---bonus)
         * [Increment Version Code](#increment-version-code)
+        * [Get Version Name](#get-version-name)
         * [dotenv](#dotenv)
    * [Resources](#resources)
    * [Find this docs useful?](#find-this-docs-useful)
@@ -385,6 +386,20 @@ Increment Version Code
         gradle_file_path: "./app/build.gradle"
     )
    ```
+   
+Get Version Name
+----------------
+
+Sometimes you might need to checkout a new branch after you distributed your application. In case of that, branch names usually have version name as a suffix to make it clear. This plugin helps you do so...
+
+An example:
+
+```
+new_version = get_version_name(
+  gradle_file_path:"./app/build.gradle",
+  ext_constant_name:"versionName"
+)
+```
    
 dotenv
 ------

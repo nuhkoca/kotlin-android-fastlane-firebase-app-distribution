@@ -65,6 +65,7 @@ GEM
       xcpretty (~> 0.3.0)
       xcpretty-travis-formatter (>= 0.0.3)
     fastlane-plugin-firebase_app_distribution (0.1.4)
+    fastlane-plugin-get_version_name (0.2.2)
     fastlane-plugin-increment_version_code (0.4.3)
     gh_inspector (1.1.3)
     google-api-client (0.23.9)
@@ -157,6 +158,7 @@ PLATFORMS
 DEPENDENCIES
   fastlane
   fastlane-plugin-firebase_app_distribution
+  fastlane-plugin-get_version_name
   fastlane-plugin-increment_version_code
 
 BUNDLED WITH

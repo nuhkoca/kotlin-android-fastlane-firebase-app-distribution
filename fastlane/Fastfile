@@ -35,6 +35,7 @@ default_platform(:android)
 platform :android do
   before_all do
     Dotenv.overload '.env.secret'
+    sh("git fetch")
   end
 
   desc "Runs all the tests"
@@ -46,7 +47,7 @@ platform :android do
   lane :beta do
     gradle(task: "clean assembleRelease")
     crashlytics
-  
+
     # sh "your_script.sh"
     # You can also use other beta testing services here
   end
@@ -88,5 +89,15 @@ platform :android do
       firebase_cli_path: "/usr/local/bin/firebase",
       apk_path: "./app/build/outputs/apk/dev/debug/app-dev-debug.apk"
     )
+
+    # new_version = get_version_name(
+    #   gradle_file_path:"./app/build.gradle",
+    #   ext_constant_name:"versionName"
+    # )
+
+    # Optional
+    # sh("git checkout -b 'version-bump-#{new_version}'")
+    # sh "git commit -am 'Version bump to #{new_version}'"
+    # push_to_git_remote
   end
 end
