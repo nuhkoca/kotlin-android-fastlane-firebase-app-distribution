@@ -390,7 +390,7 @@ Increment Version Code
 Get Version Name
 ----------------
 
-Sometimes you might need to checkout a new branch after you distributed your application. In case of that, branch names usually have version name as a suffix to make it clear. This plugin helps you do so...
+Sometimes you might need to checkout a new branch after you distributed your application. In case of that, branch names usually have version name as a suffix to make it clear. [get_version_name](https://github.com/Jems22/fastlane-plugin-get-version-name) helps you do so...
 
 An example:
 
@@ -448,6 +448,7 @@ Resources that I benefit from to create this comprehensive documentation.
 * [How to use Firebase on Android without the google-services plugin](https://medium.com/@samstern_58566/how-to-use-firebase-on-android-without-the-google-services-plugin-93ecc7dc6c4)
 * [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
 * [Increment version code plugin](https://github.com/Jems22/fastlane-plugin-increment_version_code)
+* [Get version name plugin](https://github.com/Jems22/fastlane-plugin-get-version-name)
 * [carbon.now.sh](https://carbon.now.sh/)
 
 Find this docs useful?
