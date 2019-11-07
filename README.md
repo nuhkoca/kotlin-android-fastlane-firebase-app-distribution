@@ -413,8 +413,8 @@ If it asks you some permissions, grant it otherwise it won't continue.
 Since we have a sensitive data called **Firebase App Id** we need to store it in a *.env* file. Therefore, **fastlane** will access and read content directly. We need to follow steps below in order;
 
 1. Create a **.env.secret** file inside *fastlane folder*
-2. Add ``.env.secret* to your .gitignore` file (if you are using git)
-3. Manually load *.env.secret* in the `before_all block in your ``*Fastfile**
+2. Add `.env.secret` to your `.gitignore` file (if you are using git)
+3. Manually load *.env.secret* in the `before_all block` in your `Fastfile`
 
 ```
 # fastlane/Fastfile
@@ -434,7 +434,7 @@ lane :distribute do
 end
 ```
 
-That's it! Fastlane will automatically read our value from the file and distribute a release without any error.
+That's it! **Fastlane** will automatically read our value from the file and distribute a release without any error.
    
 Resources
 =========
