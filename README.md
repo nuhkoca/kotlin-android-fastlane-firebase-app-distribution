@@ -97,7 +97,7 @@ Before you can add Firebase to your Android app, you need to create a Firebase p
     * Click **Download google-services.json** to obtain your Firebase Android config file (google-services.json).
     * Move your config file into the module (app-level) directory of your app. **This is not required anymore, hereafter you can move all required info into strings resources. This is explained in the [Android side](#android-side)**
     
-      ```
+      ```groovy
       dependencies {
       // Add the following line:
       classpath 'com.google.gms:google-services:4.3.2'  // Google Services plugin
@@ -105,7 +105,7 @@ Before you can add Firebase to your Android app, you need to create a Firebase p
       ```
     * In your module (app-level) Gradle file (usually app/build.gradle), add a line to the bottom of the file.
     
-        ```
+        ```groovy
         android {
     
         }
@@ -116,7 +116,7 @@ Before you can add Firebase to your Android app, you need to create a Firebase p
 #### Add Firebase SDKs to your app
 
 1. To your module (app-level) Gradle file (usually app/build.gradle), add the dependencies for the Firebase products that you want to use in your app.
-    ```
+    ```groovy
     dependencies {
     // ...
 
@@ -152,7 +152,7 @@ To suppress such error, you have to create both **src** and all **flavor** folde
 2. Run `./gradlew :app:assembleDebug` to force the plugin to do its job.
 3. Open the generated file `app/build/generated/res/google-services/debug/values/values.xml` and inspect the contents, it should look something like this:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
@@ -259,7 +259,7 @@ There are something we need to add into our **Fastfile** in order to have lane w
 
 5. In order to distribute your application, you need to build it first. You can check out [fastlane build actions](https://docs.fastlane.tools/actions/build_android_app/) for more options. Below code block is enough to build our application.
 
-    ```
+    ```text
     gradle(
       task: "assemble",
       flavor: "MyFlavor",
@@ -381,7 +381,7 @@ Increment Version Code
 
 [increment_version_code](https://github.com/Jems22/fastlane-plugin-increment_version_code) is a **fastlane** plugin that helps to increment version code in each release. This usually is used in **Deploy to Play Store** part. In this example, I used it in Firebase distribution part to imitate the scenario.
 
-   ```
+   ```text
    increment_version_code(
         gradle_file_path: "./app/build.gradle"
     )
@@ -394,7 +394,7 @@ Sometimes you might need to checkout a new branch after you distributed your app
 
 An example:
 
-```
+```text
 new_version = get_version_name(
   gradle_file_path:"./app/build.gradle",
   ext_constant_name:"versionName"
@@ -416,7 +416,7 @@ Since we have a sensitive data called **Firebase App Id** we need to store it in
 2. Add `.env.secret` to your `.gitignore` file (if you are using git)
 3. Manually load *.env.secret* in the `before_all block` in your `Fastfile`
 
-```
+```text
 # fastlane/Fastfile
 fastlane_require 'dotenv'
 
@@ -425,7 +425,7 @@ before_all do
 end
 ```
 
-```
+```text
 lane :distribute do               
   firebase_app_distribution(
       app: ENV['FIREBASE_APP_ID'],
@@ -463,7 +463,7 @@ And [follow](https://github.com/nuhkoca) me for my next creations! 🤩
 License
 =======
 
-```
+```text
 Apache License
 
 /*
