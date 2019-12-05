@@ -86,7 +86,7 @@ Before you can add Firebase to your Android app, you need to create a Firebase p
 2. Enter your app's [application ID](https://developer.android.com/studio/build/application-id) in the **Android package name** field. An *application ID* is sometimes referred to as a **package name** (**e.g.** com.yourcompany.yourproject)
 3. Enter other app information as prompted by the setup workflow. (SHA-1)
    * To get the debug certificate fingerprint, copy and paste below code block into your Terminal:
-   `keytool -list -v \ -alias androiddebugkey -keystore ~/.android/debug.keystore`
+   `keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore`
    * The default password for the debug keystore is android. The keytool then prints the fingerprint to the terminal. For example:
    `Certificate fingerprint: SHA1: DA:39:A3:EE:5E:6B:4B:0D:32:55:BF:EF:95:60:18:90:AF:D8:07:09`
 4. Click **Register app**.
