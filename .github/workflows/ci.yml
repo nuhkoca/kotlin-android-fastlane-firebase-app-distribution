@@ -1,6 +1,6 @@
 # Thanks to https://github.com/coil-kt/coil/blob/master/.github/workflows/ci.yml
 
-name: firebase-app-distribution
+name: firebase app distribution
 on:
   push:
     branches:
