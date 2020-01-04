@@ -1,11 +1,12 @@
 # Thanks to https://github.com/coil-kt/coil/blob/master/.github/workflows/ci.yml
 
-name: CI
+name: firebase-app-distribution
 on:
   push:
     branches:
       - master
   pull_request:
+    types: [opened, synchronize]
 jobs:
   ci:
     name: Build + Test

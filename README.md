@@ -1,4 +1,5 @@
-# Firebase App Distribution via fastlane
+
+![GitHub Actions status](https://github.com/nuhkoca/kotlin-android-fastlane-firebase-app-distribution/workflows/firebase%20app%20distribution/badge.svg)
 
 Purpose of the project
 ======================
@@ -9,6 +10,8 @@ Purpose of the project
   <a href="https://console.firebase.google.com/u/0/"><img src="https://miro.medium.com/max/3200/1*ipwpqQrHz0Lkd_5setXQCQ.jpeg" width="350" align="center"/></a>
   <a href="https://fastlane.tools/"><img src="https://miro.medium.com/max/1031/1*txtcYocQEGtOFN33ZCTDbw.png" width="350" align="center"/></a>
 </p>
+
+## Firebase App Distribution via fastlane
 
 Table of contents
 =================
