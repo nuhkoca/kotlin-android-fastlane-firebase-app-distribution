@@ -12,8 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
-/keystore
-/keystore.properties
+/keystore/*.pepk
 fastlane/report.xml
-fastlane/.env.secret
+fastlane/*.secret
 firebase-debug.log
