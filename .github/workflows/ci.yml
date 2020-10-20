@@ -21,7 +21,7 @@ jobs:
 
       # Restore the cache.
       # Intentionally don't set 'restore-keys' so the cache never contains redundant dependencies.
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ~/.gradle/caches
           key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }} }}
