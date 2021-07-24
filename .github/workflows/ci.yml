@@ -26,4 +26,4 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build
-        run: ./gradlew clean build
+        run: ./gradlew assembleDebug
