@@ -5,26 +5,25 @@ on:
   push:
     branches:
       - master
+
   pull_request:
     types: [opened, synchronize]
+
 jobs:
   ci:
     name: Build + Test
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      # Ensure .gradle/caches is empty before writing to it.
-      # This helps us stay within Github's cache size limits.
-      - name: Clean Cache
-        run: rm -rf ~/.gradle/caches
-
-      # Restore the cache.
-      # Intentionally don't set 'restore-keys' so the cache never contains redundant dependencies.
       - uses: actions/cache@v2
         with:
-          path: ~/.gradle/caches
-          key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }} }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Build
         run: ./gradlew clean build
