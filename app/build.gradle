@@ -7,11 +7,11 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     defaultConfig {
         applicationId "net.nuhkoca.firebaseappdistributionsample"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 9
         versionName getVersionNameValue()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
