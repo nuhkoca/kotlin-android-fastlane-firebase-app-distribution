@@ -5,7 +5,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.internal.CompileOptions
 
 buildscript {
-    ext.kotlin_version = '1.6.20'
+    ext.kotlin_version = '1.6.21'
     repositories {
         google()
         jcenter()
