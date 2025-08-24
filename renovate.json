@@ -3,7 +3,7 @@
     "config:base"
   ],
   "requiredStatusChecks": null,
-  "rebaseWhen": "conflicted",
+  "rebaseWhen": "auto",
   "minor": {
     "automerge": true
   },
@@ -14,6 +14,9 @@
     "automerge": true
   },
   "digest": {
+    "automerge": true
+  },
+  "major": {
     "automerge": true
   }
 }
